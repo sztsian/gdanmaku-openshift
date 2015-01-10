@@ -1,1 +1,1 @@
-hashlib
+hashlib==20081119
