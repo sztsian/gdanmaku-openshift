@@ -1,5 +1,5 @@
 hashlib==20081119
-Flask>='0.10.1'
-redis>='2.10.1'
-gevent>='1.0.0'
-Werkzeug>='0.9.0'
+Flask >= 0.10.1
+redis >= 2.10.1
+gevent >= 1.0.0
+Werkzeug >= 0.9.0
