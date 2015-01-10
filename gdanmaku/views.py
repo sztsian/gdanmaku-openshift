@@ -2,8 +2,7 @@
 # -*- coding:utf-8 -*-
 from flask import render_template, g
 import gevent
-
-#from . import app
+import app
 
 new_danmaku = gevent.event.Event()
 danmaku_channels = {
