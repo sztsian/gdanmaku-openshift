@@ -5,6 +5,7 @@ patch_all()
 
 import os
 import redis
+import gevent
 from gevent.wsgi import WSGIServer
 from flask import Flask, g
 from . import settings
