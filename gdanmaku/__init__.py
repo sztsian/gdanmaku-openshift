@@ -38,14 +38,16 @@ from . import wechat
 def main():
 
     app.debug = True
-	ip = os.environ['OPENSHIFT_PYTHON_IP']
+    ip = os.environ['OPENSHIFT_PYTHON_IP']
     port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
     host_name = os.environ['OPENSHIFT_GEAR_DNS']
+	#http_server = WSGIServer(('', 5000), app)
+    #print("Serving at 0.0.0.0:5000")
     http_server = WSGIServer((ip, port), app)
     print("Serving at ip:port")
-#    http_server = WSGIServer(('', 5000), app)
-#    print("Serving at 0.0.0.0:5000")
-   http_server.serve_forever()
+    http_server.serve_forever()
+	#http_server = WSGIServer(('', 5000), app)
+    #print("Serving at 0.0.0.0:5000")
 
 
 # vim: ts=4 sw=4 sts=4 expandtab
