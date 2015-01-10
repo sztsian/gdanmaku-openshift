@@ -74,7 +74,7 @@ def main():
     host_name = os.environ['OPENSHIFT_GEAR_DNS']
 	#http_server = WSGIServer(('', 5000), app)
     #print("Serving at 0.0.0.0:5000")
-    http_server = WSGIServer((ip, port), app)
+    http_server = WSGIServer(('', port), app)
     print("Serving at "+ip+":"+str(port))
     http_server.serve_forever()
 	#http_server = WSGIServer(('', 5000), app)
