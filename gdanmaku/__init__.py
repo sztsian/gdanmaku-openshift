@@ -34,36 +34,9 @@ def set_channel_manager():
     g.r = r
 
 
-
+from . import views
 from . import api
 from . import wechat
-
-new_danmaku = gevent.event.Event()
-danmaku_channels = {
-    "default": []
-}
-
-
-@app.route("/channel/<cname>", methods=["GET"])
-def channel_view(cname):
-    cm = g.channel_manager
-
-    channel = cm.get_channel(cname)
-    if channel is None:
-        return "Not Found", 404
-
-    return render_template("channel.html", channel=channel)
-
-
-@app.route("/", methods=["GET"])
-def index():
-    channels = g.channel_manager.channels(instance=True)
-    return render_template("index.html", channels=channels)
-
-
-@app.route("/channel-new/", methods=["GET"])
-def channel_create():
-    return render_template("new_channel.html")
 
 
 def main():
@@ -74,7 +47,7 @@ def main():
     host_name = os.environ['OPENSHIFT_GEAR_DNS']
 	#http_server = WSGIServer(('', 5000), app)
     #print("Serving at 0.0.0.0:5000")
-    http_server = WSGIServer(('', port), app)
+    http_server = WSGIServer((ip, port), app)
     print("Serving at "+ip+":"+str(port))
     http_server.serve_forever()
 	#http_server = WSGIServer(('', 5000), app)
