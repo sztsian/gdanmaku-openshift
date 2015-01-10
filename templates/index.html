@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} 频道列表 {% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>频道列表</h2>
+    <div>
+      <table class="table table-responsive">
+        <thead>
+          <th> 名称 </th>
+          <th> 说明 </th>
+        </thead>
+        <tbody>
+        {%- for chan in channels %}
+        <tr>
+          <td><a href="{{ url_for("channel_view", cname=chan.name) }}">{% if not chan.is_open %}<i class="glyphicon glyphicon-lock"></i>{% endif %} {{ chan.name }}</a> </td>
+          <td>{{ chan.desc }}</td>
+        </tr>
+        {% endfor -%}
+        </tbody>
+      </table>
+      <a class="btn btn-success" href="{{ url_for("channel_create") }}">创建频道</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<style type="text/css">
+body {
+  padding-top: 40px; 
+}
+</style>
+{% endblock %}
+
+{#
+vim: ft=jinja
+#}
