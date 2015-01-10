@@ -3,6 +3,7 @@
 from gevent.monkey import patch_all
 patch_all()
 
+import os
 import redis
 from gevent.wsgi import WSGIServer
 from flask import Flask, g
