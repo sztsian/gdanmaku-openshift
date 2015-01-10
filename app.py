@@ -16,7 +16,7 @@ import redis
 from gevent.wsgi import WSGIServer
 from flask import Flask, g
 import settings
-import ChannelManager
+import channel_manager
 
 app = Flask(__name__)
 app.config.from_object(settings)
@@ -39,9 +39,9 @@ def set_channel_manager():
     g.r = r
 
 
-from . import views
-from . import api
-from . import wechat
+import views
+import api
+import wechat
 
 #def main():
 app.debug = True
