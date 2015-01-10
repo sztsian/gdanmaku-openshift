@@ -8,6 +8,7 @@ import redis
 import gevent
 from gevent.wsgi import WSGIServer
 from flask import Flask, g
+from flask import render_template, g
 from . import settings
 from .channel_manager import ChannelManager
 
