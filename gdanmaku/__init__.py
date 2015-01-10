@@ -40,7 +40,6 @@ from . import wechat
 
 
 def main():
-
     app.debug = True
     ip = os.environ['OPENSHIFT_PYTHON_IP']
     port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
