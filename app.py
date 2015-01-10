@@ -15,8 +15,8 @@ patch_all()
 import redis
 from gevent.wsgi import WSGIServer
 from flask import Flask, g
-from . import settings
-from .channel_manager import ChannelManager
+import settings
+import ChannelManager
 
 app = Flask(__name__)
 app.config.from_object(settings)
